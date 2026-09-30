@@ -6,7 +6,7 @@ public class main {
         while (running) {
 
             // choice input
-            System.out.println("Choose an option:\n1. Passenger Capacity @ Maximum Load Point\n2. Quit\n3. Dwell Time");
+            System.out.println("Choose an option:\n1. Passenger Capacity @ Maximum Load Point\n2. Quit\n3. Dwell Time\n4. Test");
             int choice = scanner.nextInt();
             if (choice == 1) {
 
@@ -34,9 +34,14 @@ public class main {
 
                 // results
                 dwell_time.calculate(num_per_hour);
-                System.out.println("The dwell time @ " + num_per_hour + " buses per hour is " + dwell_time.getDT() + " minutes with a headway of " + dwell_time.getHeadway());
+                System.out.println("The wait time @ " + num_per_hour + " buses per hour is " + dwell_time.getDT() + " minutes with a headway of " + dwell_time.getHeadway());
                 System.out.println("Simulation End.");
                 System.out.println();
+            } else if (choice == 4) {
+                BusSamples.generateTimetable();
+                System.out.println("Bus:");
+                int bus = scanner.nextInt();
+                System.out.println(BusSamples.getBusTime(bus));
             }
         }
     }
